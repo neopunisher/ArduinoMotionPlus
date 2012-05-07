@@ -1,28 +1,27 @@
 /*
- * ArduinoNunchuk Demo
+ * ArduinoMotionPlus Demo
  * 
- * Copyright 2011-2012 Gabriel Bianconi, http://www.gabrielbianconi.com/
+ * Copyright 2011-2012 Carter Cole, http://www.cartercole.com/
  *
- * Project URL: http://www.gabrielbianconi.com/projects/arduinonunchuk/
  * 
  */
 
 #include <Wire.h>
-#include <ArduinoNunchuk.h>
+#include <ArduinoMotionPlus.h>
 
 #define BAUDRATE 19200
 
-ArduinoNunchuk nunchuk = ArduinoNunchuk();
+ArduinoMotionPlus motionplus = ArduinoMotionPlus();
 
 void setup()
 {
   Serial.begin(BAUDRATE);
-  nunchuk.init();
+  motionplus.init();
 }
 
 void loop()
 {
-  nunchuk.update();
+  motionplus.update();
   
   Serial.print(nunchuk.analogX, DEC);
   Serial.print(' ');
