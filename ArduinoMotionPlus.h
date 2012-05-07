@@ -19,18 +19,18 @@
 class ArduinoMotionPlus
 {  
   public:  
-    int analogX;
-    int analogY;
-    int accelX;
-    int accelY;
-    int accelZ;
-    int zButton;
-    int cButton;
+    int yaw;
+    int pitch;
+    int roll;
   
     void init();    
     void update();
     
   private:  
+    int yaw0;
+    int pitch0;
+    int roll0;
+  
     void _sendByte(byte data, byte location);
 };
 
