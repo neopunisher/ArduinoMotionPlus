@@ -1,15 +1,11 @@
 /*
- * ArduinoNunchuk.cpp - Improved Wii Nunchuk library for Arduino
+ * ArduinoMotionPlus.cpp - Improved Wii Motion Plus library for Arduino
  * 
- * Copyright 2011-2012 Gabriel Bianconi, http://www.gabrielbianconi.com/
+ * Copyright 2011-2012 Carter Cole, http://www.cartercole.com/
  *
- * Project URL: http://www.gabrielbianconi.com/projects/arduinonunchuk/
  *
  * Based on the following projects/websites:
- *   http://www.windmeadow.com/node/42
- *   http://todbot.com/blog/2008/02/18/wiichuck-wii-nunchuck-adapter-available/
- *   http://wiibrew.org/wiki/Wiimote/Extension_Controllers
- * 
+ * Project URL: http://www.gabrielbianconi.com/projects/arduinonunchuk/
  */
 
 #if (ARDUINO >= 100)
@@ -19,21 +15,21 @@
 #endif
 
 #include <Wire.h>
-#include "ArduinoNunchuk.h"
+#include "ArduinoMotionPlus.h"
 
 #define ADDRESS 0x52
 
-void ArduinoNunchuk::init()
+void ArduinoMotionPlus::init()
 {      
   Wire.begin();
   
-  ArduinoNunchuk::_sendByte(0x55, 0xF0);
-  ArduinoNunchuk::_sendByte(0x00, 0xFB); 
+  ArduinoMotionPlus::_sendByte(0x55, 0xF0);
+  ArduinoMotionPlus::_sendByte(0x00, 0xFB); 
   
-  ArduinoNunchuk::update();
+  ArduinoMotionPlus::update();
 }
     
-void ArduinoNunchuk::update()
+void ArduinoMotionPlus::update()
 { 
   int count = 0;      
   int values[5];
@@ -57,7 +53,7 @@ void ArduinoNunchuk::update()
   ArduinoNunchuk::_sendByte(0x00, 0x00);
 }
   
-void ArduinoNunchuk::_sendByte(byte data, byte location)
+void ArduinoMotionPlus::_sendByte(byte data, byte location)
 {  
   Wire.beginTransmission(ADDRESS);
   
